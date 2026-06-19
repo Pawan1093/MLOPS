@@ -8,6 +8,7 @@ stages:
   data_preprocessing:
     cmd: python src/datapreprocessing.py
     deps:
+    - data/raw
     - src/datapreprocessing.py
     outs:
     - data/preprocessed
