@@ -1,0 +1,13 @@
+stages:
+  dataingestion:
+    cmd: python src/dataingestion.py
+    deps:
+    - src/dataingestion.py
+    outs:
+    - data/raw
+  data_preprocessing:
+    cmd: python src/datapreprocessing.py
+    deps:
+    - src/datapreprocessing.py
+    outs:
+    - data/preprocessed
