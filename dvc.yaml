@@ -19,3 +19,19 @@ stages:
     - src/featureEngineering.py
     outs:
     - data/Featurestored
+  model_building:
+    cmd: python src/modelBuilding.py
+    deps:
+    - data/Featurestored
+    - src/modelBuilding.py
+    outs:
+    - model.pkl
+  model_evaluation:
+    cmd: python src/model_evaluation.py
+    deps:
+    - data/featurestored/testBow.csv
+    - model.pkl
+    - src/model_evaluation.py
+    metrics:
+    - metrics.json:
+        cache: false

@@ -41,11 +41,48 @@ stages:
       nfiles: 2
     - path: src/featureEngineering.py
       hash: md5
-      md5: a358b8a91cb2df91260623ee72be5b31
-      size: 1000
+      md5: f3ad429c13d1203cf130d44147eb2a7e
+      size: 1008
     outs:
     - path: data/Featurestored
       hash: md5
       md5: 3aaab72b241eadc6a4472894ec8dc901.dir
       size: 470850612
       nfiles: 2
+  model_building:
+    cmd: python src/modelBuilding.py
+    deps:
+    - path: data/Featurestored
+      hash: md5
+      md5: 3aaab72b241eadc6a4472894ec8dc901.dir
+      size: 470850612
+      nfiles: 2
+    - path: src/modelBuilding.py
+      hash: md5
+      md5: d384f3f0ec77f8472c2c4b2c08bdee05
+      size: 386
+    outs:
+    - path: model.pkl
+      hash: md5
+      md5: 06e3b8c78303a7ae24e6451f86a640d4
+      size: 67808
+  model_evaluation:
+    cmd: python src/model_evaluation.py
+    deps:
+    - path: data/featurestored/testBow.csv
+      hash: md5
+      md5: 616582120bdc8665b0097fe1a15ec164
+      size: 235425306
+    - path: model.pkl
+      hash: md5
+      md5: 06e3b8c78303a7ae24e6451f86a640d4
+      size: 67808
+    - path: src/model_evaluation.py
+      hash: md5
+      md5: 6be4725e117c130646882e1818759da0
+      size: 1159
+    outs:
+    - path: metrics.json
+      hash: md5
+      md5: cac5719662a729ace0af931b1924ca59
+      size: 113
