@@ -12,3 +12,10 @@ stages:
     - src/datapreprocessing.py
     outs:
     - data/preprocessed
+  FeatureEngineering:
+    cmd: python src/featureEngineering.py
+    deps:
+    - data/preprocessed
+    - src/featureEngineering.py
+    outs:
+    - data/Featurestored

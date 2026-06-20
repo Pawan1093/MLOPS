@@ -39,7 +39,8 @@ test_df = pd.read_csv("data/raw/test.csv")
 train_df["content"] = train_df["content"].apply(preprocess_text)
 test_df["content"] = test_df["content"].apply(preprocess_text)
 
+
 data_path = os.path.join("data", "preprocessed")
 os.makedirs(data_path, exist_ok=True)
-train_df.to_csv(os.path.join(data_path, "train_processed.csv"))
-test_df.to_csv(os.path.join(data_path, "test_processed.csv"))
+train_df.to_csv(os.path.join(data_path, "train_processed.csv"), index = False)
+test_df.to_csv(os.path.join(data_path, "test_processed.csv"), index= False)
