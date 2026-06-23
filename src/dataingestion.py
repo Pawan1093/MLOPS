@@ -2,7 +2,9 @@ import numpy as np
 import pandas as pd
 import os
 from sklearn.model_selection import train_test_split
+import yaml 
 
+test_size = yaml.safe_load(open('params.yaml', 'r'))['dataingestion']['test_size']
 
 df = pd.read_csv(r"https://raw.githubusercontent.com/campusx-official/jupyter-masterclass/refs/heads/main/tweet_emotions.csv")
 
@@ -17,7 +19,7 @@ finaldf["sentiment"] = finaldf["sentiment"].map({'happiness':1, "sadness":0})
 
 
 # diciding data into training and testig set 
-train_data, test_data = train_test_split(finaldf, test_size=0.2, random_state=42)
+train_data, test_data = train_test_split(finaldf, test_size= test_size, random_state=42)
 
 
 # local Copy 

@@ -1,0 +1,5 @@
+dataingestion:
+  test_size: 0.3
+
+ModelBuilding :
+  n_estimators: 50

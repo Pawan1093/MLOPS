@@ -3,6 +3,8 @@ stages:
     cmd: python src/dataingestion.py
     deps:
     - src/dataingestion.py
+    params:
+    - dataingestion.test_size 
     outs:
     - data/raw
   data_preprocessing:
@@ -24,6 +26,8 @@ stages:
     deps:
     - data/Featurestored
     - src/modelBuilding.py
+    params:
+    - ModelBuilding.n_estimators
     outs:
     - model.pkl
   model_evaluation:

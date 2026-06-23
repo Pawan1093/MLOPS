@@ -19,7 +19,7 @@ Y_test = test_data["sentiment"]
 vectorizer = CountVectorizer()
 
 X_trainBow = vectorizer.fit_transform(X_train)
-X_testBow = vectorizer.fit_transform(X_test)
+X_testBow = vectorizer.transform(X_test)
 
 
 
